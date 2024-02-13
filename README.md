@@ -1,14 +1,13 @@
-This project is effectively just the inverse of pyqir
+This project is effectively just the inverse of pyqir.
 
-The parser qir2qiskit converts a QIR subset of LLVM bitcode into a Qiskit QuantumCircuit object as a library
+The parser qir2qiskit converts a QIR subset of LLVM bitcode into a Qiskit QuantumCircuit object as a library.
 
+Dependencies:
 ```bash
 pip install qiskit qiskit-qir llvmlite pyqir
-git clone https://gitlab-int.srv.lrz.de/lrz-qct-qis/quantum_intermediate_representation/qir2qiskit.git
-cd qir2qiskit
-git checkout kickoff
 ```
 
+Example:
 ```python
 from qiskit                     import QuantumCircuit
 from qiskit_qir                 import to_qir_module
