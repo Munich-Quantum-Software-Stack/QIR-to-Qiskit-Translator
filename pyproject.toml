@@ -1,0 +1,34 @@
+
+[project]
+name = "qir_qiskit"
+version = "0.1.0"
+description = "Tool to convert QIR to a Qiskit QuantumCircuit object"
+authors = [
+    {name = "Jorge Echavarria", email = "jorge.echavarria@lrz.de"},
+    {name = "Martin Ruefenacht", email = "martin.ruefenacht@lrz.de"},
+]
+dependencies = [
+    "qiskit>=0.43.1",
+    "qiskit-qir>=0.3.1",
+    "llvmlite>=0.40.1",
+    "pyqir>=0.8.0",
+]
+requires-python = ">=3.10"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-pep517>=1.0"]
+build-backend = "pdm.pep517.api"
+
+[tool.pdm.dev-dependencies]
+test = [
+    "pytest>=7.3",
+]
+lint = [
+    "pre-commit>=3.3",
+    "flake8>=6.0.0",
+]
+typing = [
+    "mypy>=1.4.0",
+]
