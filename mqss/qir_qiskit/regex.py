@@ -1,3 +1,4 @@
+"""Functions extracting information from QIR operations using regex"""
 from typing import (
     Union,
     Tuple,
@@ -12,7 +13,15 @@ import binascii
 import struct
 
 
-def get_var_name(instruction: Value) -> str:
+def get_variable_name(instruction: Value) -> str:
+    """Get name of a variable
+
+    Keyword arguments:
+        instruction -- QIR instruction from which name of the variable will be extracted
+
+    Returns:
+        The name of a variable as string
+    """
     codestring = str(instruction)
 
     try:
@@ -29,6 +38,14 @@ def get_var_name(instruction: Value) -> str:
 
 
 def get_instruction_type(instruction: Instruction) -> str:
+    """Get name of a variable
+
+    Keyword arguments:
+        instruction -- QIR instruction from which name of the variable will be extracted
+
+    Returns:
+        The name of a variable as string
+    """
     codestring = str(instruction).strip()
 
     if instruction.opcode == Opcode.UNREACHABLE:
@@ -59,7 +76,15 @@ def get_instruction_type(instruction: Instruction) -> str:
     assert False, f"Error: wrong instruction format: {instruction}"
 
 
-def get_br_cof(instruction: Instruction) -> Union[str, bool, None]:
+def get_br_cofactor(instruction: Instruction) -> Union[str, bool, None]:
+    """Get cofactor of branch instruction
+
+    Keyword arguments:
+        instruction -- QIR branch instruction from which cofactor will be extracted
+
+    Returns:
+        Cofactor as string, as bool or None 
+    """
     codestring = str(instruction)
 
     patterns = [r'br i1 (.+?),', r'br i1 (.+?)$']
@@ -82,6 +107,14 @@ def get_br_cof(instruction: Instruction) -> Union[str, bool, None]:
 
 
 def get_br_labels(instruction: Instruction) -> Tuple[str, str | None]:
+    """Get labels from branch instruction
+
+    Keyword arguments:
+        instruction -- QIR branch instruction from which labels will be extracted
+
+    Returns:
+        Tuple of labels if found, otherwise None
+    """
     codestring = str(instruction)
 
     try:
@@ -97,6 +130,14 @@ def get_br_labels(instruction: Instruction) -> Tuple[str, str | None]:
 
 
 def get_rt_operation(instruction: Instruction) -> str:
+    """Get runtime operation
+
+    Keyword arguments:
+        instruction -- QIR runtime instruction which name will be extracted
+
+    Returns:
+        Runtime operation name as string
+    """
     codestring = str(instruction)
 
     try:
@@ -112,6 +153,14 @@ def get_rt_operation(instruction: Instruction) -> str:
 
 
 def get_qis_operation(instruction: Instruction) -> str:
+    """Get QIS operation from instruction
+
+    Keyword arguments:
+        instruction -- QIR QIS instruction which name will be extracted
+
+    Returns:
+        QIS operation as string
+    """
     codestring = str(instruction)
 
     try:
@@ -131,6 +180,14 @@ def get_qis_operation(instruction: Instruction) -> str:
 
 
 def get_operand_arg(operand: Value) -> Union[str, float]:
+    """Get argument of the operand
+
+    Keyword arguments:
+        operand -- QIR operand which argument will be extracted
+
+    Returns:
+        Operand argument as string or float
+    """
     opstring = str(operand).strip()
 
     if opstring == '%Qubit* null':

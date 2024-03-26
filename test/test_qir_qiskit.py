@@ -2,7 +2,7 @@ from qiskit import QuantumCircuit
 from qiskit_qir import to_qir_module
 from typing import List
 from hpcqc.qir_qiskit.translate import to_qiskit_circuit
-from hpcqc.qir_qiskit.verifier import transpile_qiskit
+from hpcqc.qir_qiskit.transpile import transpile_qiskit
 from math import pi
 
 
