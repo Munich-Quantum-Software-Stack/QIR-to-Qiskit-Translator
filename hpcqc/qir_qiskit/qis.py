@@ -191,6 +191,7 @@ def insert_operation(
                     condition,
                     cofactor,
                 )
+        case 'cx':
         case 'cnot':
             if condition == -1:
                 circuit.cx(
