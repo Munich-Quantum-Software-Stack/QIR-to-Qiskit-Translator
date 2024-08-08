@@ -9,10 +9,10 @@ pip install qiskit qiskit-qir llvmlite pyqir
 
 Example:
 ```python
-from qiskit                     import QuantumCircuit
-from qiskit_qir                 import to_qir_module
-from hpcqc.qir_qiskit.translate import to_qiskit_circuit
-from hpcqc.qir_qiskit.verifier  import transpile_qiskit
+from qiskit import QuantumCircuit
+from qiskit_qir import to_qir_module
+from qir_qiskit.translate import to_qiskit_circuit
+from qir_qiskit.verifier import transpile_qiskit
 
 old_circuit = QuantumCircuit(1, 1)
 

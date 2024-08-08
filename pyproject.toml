@@ -21,6 +21,9 @@ license = {text = "MIT"}
 requires = ["pdm-pep517>=1.0"]
 build-backend = "pdm.pep517.api"
 
+[tool.pdm.build]
+package-dir = "hpcqc"
+
 [tool.pdm.dev-dependencies]
 test = [
     "pytest>=7.3",
