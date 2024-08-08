@@ -1,10 +1,7 @@
 import os
 from pathlib import Path
 
-from pyqir import (
-    Context,
-    Module,
-)
+from pyqir import Context, Module
 from qir_qiskit.translate import to_qiskit_circuit
 
 if __name__ == "__main__":
