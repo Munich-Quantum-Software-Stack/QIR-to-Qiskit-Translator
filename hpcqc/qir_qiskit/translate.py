@@ -1,11 +1,12 @@
-from qiskit.circuit.quantumcircuit import QuantumCircuit  # type: ignore
 import llvmlite.binding as llvm  # type: ignore
 from pyqir import (
     Context,
     Module,
 )
-from hpcqc.qir_qiskit.elements import QirModule  # type: ignore
-from hpcqc.qir_qiskit.visitor import BasicQisVisitor
+from qiskit.circuit.quantumcircuit import QuantumCircuit  # type: ignore
+
+from qir_qiskit.elements import QirModule  # type: ignore
+from qir_qiskit.visitor import BasicQisVisitor
 
 
 def to_qiskit_circuit(
