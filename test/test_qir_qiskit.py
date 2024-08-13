@@ -37,4 +37,4 @@ def test_qiskit_qir_qiskit():
     qir_module, _ = to_qir_module(transpiled_circuit, emit_barrier_calls=True)
 
     # translate the circuit from QIR to qiskit
-    new_qiskit_circuit = to_qiskit_circuit(qir_module.bitcode)
+    _ = to_qiskit_circuit(qir_module.bitcode)
