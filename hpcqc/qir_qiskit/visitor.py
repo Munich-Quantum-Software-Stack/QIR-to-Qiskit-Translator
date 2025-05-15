@@ -60,14 +60,10 @@ class BasicQisVisitor(QuantumCircuitElementVisitor):
         self,
         qregk: str,
     ) -> int:
-        if qregk in self._qregi:
-            return self._qregi[qregk]
-
-        qregi = max(self._qregi.values()) + 1 if self._qregi else 0
-
-        self._qregi[qregk] = qregi
-
-        return qregi
+        if qregk == "null":
+            return 0
+        else:
+            return int(qregk)
 
     def visit_qir_module(
         self,
