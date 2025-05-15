@@ -163,8 +163,7 @@ class BasicQisVisitor(QuantumCircuitElementVisitor):
 
                     match operation:
                         case 'initialize':
-                            for qubit in range(0, self._num_qubits):
-                                self._circuit.reset(qubit)
+                                pass
                         case 'array_record_output':
                             pass
                         case 'result_record_output':
