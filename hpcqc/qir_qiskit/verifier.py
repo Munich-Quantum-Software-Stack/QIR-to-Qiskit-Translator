@@ -6,8 +6,8 @@ import pyqir.qis as qis
 
 
 def transpile_qiskit(circuit: QuantumCircuit) -> QuantumCircuit:
-    basis_gates = [q for q in dir(qis) if not q.startswith('__')]
-    basis_gates.append('id')
+    basis_gates = [q for q in dir(qis) if not q.startswith("__")]
+    basis_gates.append("id")
 
     transpiled_circuit = transpile(
         circuits=circuit,

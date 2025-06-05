@@ -79,8 +79,8 @@ class BasicQisVisitor(QuantumCircuitElementVisitor):
         qir_blocks = {}
 
         for i, block in enumerate(function.basic_blocks):
-            if block.name == '':
-                qir_blocks[function.name + '_' + str(i)] = QirBlock(block)
+            if block.name == "":
+                qir_blocks[function.name + "_" + str(i)] = QirBlock(block)
             else:
                 qir_blocks[block.name] = QirBlock(block)
 
@@ -88,8 +88,8 @@ class BasicQisVisitor(QuantumCircuitElementVisitor):
             print(f"Warning: no blocks found in function '{function.name}'")
             return
 
-        if 'entry' in qir_blocks:
-            block_name = 'entry'
+        if "entry" in qir_blocks:
+            block_name = "entry"
         else:
             try:
                 block_name = list(qir_blocks.keys())[0]
@@ -115,15 +115,14 @@ class BasicQisVisitor(QuantumCircuitElementVisitor):
         assert isinstance(current_block._block, BasicBlock)
 
         for instruction in current_block._block.instructions:
-
             instruction_type = get_instruction_type(instruction)
 
             match instruction_type:
-                case 'unreachable' | 'phi' | 'icmp' | 'add':
+                case "unreachable" | "phi" | "icmp" | "add":
                     assert False, "Unreachable line was reached\n"
-                case 'ret':
+                case "ret":
                     pass
-                case 'br':
+                case "br":
                     br1, br2 = get_br_labels(instruction)
 
                     cof = get_br_cof(instruction)
@@ -154,19 +153,19 @@ class BasicQisVisitor(QuantumCircuitElementVisitor):
                     if cof is not True:
                         self.visit_function_block(br2, qir_blocks)
 
-                case 'rt':
+                case "rt":
                     operation = get_rt_operation(instruction)
 
                     match operation:
-                        case 'initialize':
-                                pass
-                        case 'array_record_output':
+                        case "initialize":
                             pass
-                        case 'result_record_output':
+                        case "array_record_output":
                             pass
-                        case 'tuple_record_output':
+                        case "result_record_output":
                             pass
-                        case 'qubit_allocate':
+                        case "tuple_record_output":
+                            pass
+                        case "qubit_allocate":
                             if len(self._qregi) == 0:
                                 msb = -1
                             else:
@@ -177,7 +176,7 @@ class BasicQisVisitor(QuantumCircuitElementVisitor):
                         case _:
                             raised = f"Operation '{operation}' not supported\n"
                             assert False, raised
-                case 'qis':
+                case "qis":
                     operation = get_qis_operation(instruction)
                     operands = instruction.operands
                     ops: List[Value] = []
@@ -188,7 +187,7 @@ class BasicQisVisitor(QuantumCircuitElementVisitor):
                         if not isinstance(constant, Function):
                             ops.append(constant)
 
-                    if operation == 'm':
+                    if operation == "m":
                         operand1 = ops[0]
 
                         assert isinstance(operand1, Call) is True
@@ -253,7 +252,7 @@ class BasicQisVisitor(QuantumCircuitElementVisitor):
 
                         assert isinstance(var2, str)
 
-                        if operation == 'mz':
+                        if operation == "mz":
                             arg2 = self.get_creg_id(var2)
                         else:
                             arg2 = self.get_qreg_id(var2)
@@ -309,7 +308,7 @@ class BasicQisVisitor(QuantumCircuitElementVisitor):
                     raised = f"Amount of operands not supported: {len(ops)}"
                     assert len(ops) <= 3, raised
 
-                    if operation == 'read_result':
+                    if operation == "read_result":
                         raised = "Error: Amount of operands not supported"
                         assert len(ops) == 1, f"{raised}: {len(ops)}"
 

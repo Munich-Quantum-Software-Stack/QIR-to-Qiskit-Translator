@@ -16,7 +16,7 @@ def get_var_name(instruction: Value) -> str:
     codestring = str(instruction)
 
     try:
-        pattern_left = r'(\%.+?)='
+        pattern_left = r"(\%.+?)="
         op_left = re.search(pattern_left, codestring)
         assert op_left is not None
     except AttributeError as error:
@@ -32,29 +32,29 @@ def get_instruction_type(instruction: Instruction) -> str:
     codestring = str(instruction).strip()
 
     if instruction.opcode == Opcode.UNREACHABLE:
-        return 'unreachable'
+        return "unreachable"
 
     if instruction.opcode == Opcode.RET:
-        return 'ret'
+        return "ret"
 
     if instruction.opcode == Opcode.BR:
-        return 'br'
+        return "br"
 
     if instruction.opcode == Opcode.PHI:
-        return 'phi'
+        return "phi"
 
     if instruction.opcode == Opcode.ICMP:
-        return 'icmp'
+        return "icmp"
 
     if instruction.opcode == Opcode.ADD:
-        return 'add'
+        return "add"
 
     if instruction.opcode == Opcode.CALL:
-        if codestring.find('@__quantum__rt__') >= 0:
-            return 'rt'
+        if codestring.find("@__quantum__rt__") >= 0:
+            return "rt"
 
-        if codestring.find('@__quantum__qis__') >= 0:
-            return 'qis'
+        if codestring.find("@__quantum__qis__") >= 0:
+            return "qis"
 
     assert False, f"Error: wrong instruction format: {instruction}"
 
@@ -62,13 +62,13 @@ def get_instruction_type(instruction: Instruction) -> str:
 def get_br_cof(instruction: Instruction) -> Union[str, bool, None]:
     codestring = str(instruction)
 
-    patterns = [r'br i1 (.+?),', r'br i1 (.+?)$']
+    patterns = [r"br i1 (.+?),", r"br i1 (.+?)$"]
 
     for pattern in patterns:
         op = re.search(pattern, codestring)
 
         if op is not None:
-            cofactor = op.group(1).replace(' ', '')
+            cofactor = op.group(1).replace(" ", "")
 
             if cofactor == "false":
                 return False
@@ -85,7 +85,7 @@ def get_br_labels(instruction: Instruction) -> Tuple[str, str | None]:
     codestring = str(instruction)
 
     try:
-        pattern = re.compile(r'label \%(.*),|label \%(.*)$')
+        pattern = re.compile(r"label \%(.*),|label \%(.*)$")
         labels = ["".join(x) for x in re.findall(pattern, codestring)]
         assert len(labels) == 1 or len(labels) == 2
     except AttributeError as error:
@@ -100,7 +100,7 @@ def get_rt_operation(instruction: Instruction) -> str:
     codestring = str(instruction)
 
     try:
-        pattern = r'__quantum__rt__(.+?)\('
+        pattern = r"__quantum__rt__(.+?)\("
         op = re.search(pattern, codestring)
         assert op is not None
     except AttributeError as error:
@@ -115,11 +115,11 @@ def get_qis_operation(instruction: Instruction) -> str:
     codestring = str(instruction)
 
     try:
-        if codestring.find('body') >= 0:
-            pattern = r'__quantum__qis__(.+?)__body\('
+        if codestring.find("body") >= 0:
+            pattern = r"__quantum__qis__(.+?)__body\("
             op = re.search(pattern, codestring)
-        elif codestring.find('adj') >= 0:
-            pattern = r'__quantum__qis__(.+?)\('
+        elif codestring.find("adj") >= 0:
+            pattern = r"__quantum__qis__(.+?)\("
             op = re.search(pattern, codestring)
         assert op is not None
     except AttributeError as error:
@@ -133,32 +133,32 @@ def get_qis_operation(instruction: Instruction) -> str:
 def get_operand_arg(operand: Value) -> Union[str, float]:
     opstring = str(operand).strip()
 
-    if opstring == '%Qubit* null':
-        return 'null'
+    if opstring == "%Qubit* null":
+        return "null"
 
-    if opstring == '%Result* null':
-        return 'null'
+    if opstring == "%Result* null":
+        return "null"
 
-    if opstring.find('double') >= 0:
+    if opstring.find("double") >= 0:
         try:
-            arg = re.search('double (.+)$', opstring)
+            arg = re.search("double (.+)$", opstring)
             assert arg is not None
         except AttributeError as error:
             print(f"{error}: wrong string format")
         else:
             theta = arg.group(1).strip()
 
-            if theta.startswith('0x') is True:
-                hextheta = binascii.unhexlify(theta.lstrip('0x'))
+            if theta.startswith("0x") is True:
+                hextheta = binascii.unhexlify(theta.lstrip("0x"))
 
-                return struct.unpack('>d', hextheta)[0]
+                return struct.unpack(">d", hextheta)[0]
 
             return float(theta)
 
-    if opstring.find('Qubit') >= 0:
-        if opstring.find('inttoptr') >= 0:
+    if opstring.find("Qubit") >= 0:
+        if opstring.find("inttoptr") >= 0:
             try:
-                pattern = r'\%Qubit\* inttoptr \(i64 (.+?) to \%Qubit\*\)'
+                pattern = r"\%Qubit\* inttoptr \(i64 (.+?) to \%Qubit\*\)"
                 arg = re.search(pattern, opstring)
                 raised = f"Error: wrong opstring format: {opstring}"
                 assert arg is not None, raised
@@ -166,9 +166,9 @@ def get_operand_arg(operand: Value) -> Union[str, float]:
                 print(f"{error}: wrong string format")
             else:
                 return arg.group(1).strip()
-        elif opstring.find(r'\%Qubit\* \%') >= 0:
+        elif opstring.find(r"\%Qubit\* \%") >= 0:
             try:
-                pattern = r'\%Qubit\* (\%.+?)$'
+                pattern = r"\%Qubit\* (\%.+?)$"
                 arg = re.search(pattern, opstring)
                 raised = f"Error: wrong opstring format: {opstring}"
                 assert arg is not None, raised
@@ -178,7 +178,7 @@ def get_operand_arg(operand: Value) -> Union[str, float]:
                 return arg.group(1).strip()
         else:
             try:
-                pattern = r'\%Qubit\* (.+?)$'
+                pattern = r"\%Qubit\* (.+?)$"
                 arg = re.search(pattern, opstring)
                 raised = f"Error: wrong opstring format: {opstring}"
                 str(operand).strip()
@@ -188,10 +188,10 @@ def get_operand_arg(operand: Value) -> Union[str, float]:
             else:
                 return arg.group(1).strip()
 
-    if opstring.find('Result') >= 0:
-        if opstring.find('inttoptr') >= 0:
+    if opstring.find("Result") >= 0:
+        if opstring.find("inttoptr") >= 0:
             try:
-                pattern = r'\%Result\* inttoptr \(i64 (.+?) to \%Result\*\)'
+                pattern = r"\%Result\* inttoptr \(i64 (.+?) to \%Result\*\)"
                 arg = re.search(pattern, opstring)
                 raised = f"Error: wrong opstring format: {opstring}"
                 assert arg is not None, raised
@@ -199,9 +199,9 @@ def get_operand_arg(operand: Value) -> Union[str, float]:
                 print(f"{error}: wrong string format")
             else:
                 return arg.group(1).strip()
-        elif opstring.find(r'\%Result\* \%') >= 0:
+        elif opstring.find(r"\%Result\* \%") >= 0:
             try:
-                pattern = r'\%Result\* (\%.+?)$'
+                pattern = r"\%Result\* (\%.+?)$"
                 arg = re.search(pattern, opstring)
                 raised = f"Error: wrong opstring format: {opstring}"
                 assert arg is not None, raised
@@ -211,7 +211,7 @@ def get_operand_arg(operand: Value) -> Union[str, float]:
                 return arg.group(1).strip()
         else:
             try:
-                pattern = r'\%Result\* (.+?)$'
+                pattern = r"\%Result\* (.+?)$"
                 arg = re.search(pattern, opstring)
                 raised = f"Error: wrong opstring format: {opstring}"
                 assert arg is not None, raised

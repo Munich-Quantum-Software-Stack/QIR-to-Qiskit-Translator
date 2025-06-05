@@ -11,21 +11,20 @@ def insert_operation(
     condition: Union[int, float, None],
     cofactor: Union[int, float, None],
 ) -> QuantumCircuit:
-
     for arg in locals():
         raised = f"Error: wrong argument: {arg}"
         assert arg is not None, raised
 
     match operation:
-        case 'reset':
+        case "reset":
             circuit.reset(arg1)
-        case 'barrier':
+        case "barrier":
             circuit.barrier()
-        case 'id':
+        case "id":
             # NOTE Bug already reported
             # circuit.id(arg1)
             pass
-        case 'x':
+        case "x":
             if condition == -1:
                 circuit.x(
                     arg1,
@@ -37,7 +36,7 @@ def insert_operation(
                     condition,
                     cofactor,
                 )
-        case 'y':
+        case "y":
             if condition == -1:
                 circuit.y(
                     arg1,
@@ -49,7 +48,7 @@ def insert_operation(
                     condition,
                     cofactor,
                 )
-        case 'z':
+        case "z":
             if condition == -1:
                 circuit.z(
                     arg1,
@@ -61,7 +60,7 @@ def insert_operation(
                     condition,
                     cofactor,
                 )
-        case 'h':
+        case "h":
             if condition == -1:
                 circuit.h(
                     arg1,
@@ -73,7 +72,7 @@ def insert_operation(
                     condition,
                     cofactor,
                 )
-        case 't':
+        case "t":
             if condition == -1:
                 circuit.t(
                     arg1,
@@ -85,7 +84,7 @@ def insert_operation(
                     condition,
                     cofactor,
                 )
-        case 's':
+        case "s":
             if condition == -1:
                 circuit.s(
                     arg1,
@@ -97,7 +96,7 @@ def insert_operation(
                     condition,
                     cofactor,
                 )
-        case 's__adj':
+        case "s__adj":
             if condition == -1:
                 circuit.sdg(
                     arg1,
@@ -109,7 +108,7 @@ def insert_operation(
                     condition,
                     cofactor,
                 )
-        case 't__adj':
+        case "t__adj":
             if condition == -1:
                 circuit.tdg(
                     arg1,
@@ -121,7 +120,7 @@ def insert_operation(
                     condition,
                     cofactor,
                 )
-        case 'rx':
+        case "rx":
             if condition == -1:
                 circuit.rx(
                     arg1,
@@ -135,7 +134,7 @@ def insert_operation(
                     condition,
                     cofactor,
                 )
-        case 'ry':
+        case "ry":
             if condition == -1:
                 circuit.ry(
                     arg1,
@@ -149,7 +148,7 @@ def insert_operation(
                     condition,
                     cofactor,
                 )
-        case 'rz':
+        case "rz":
             if condition == -1:
                 circuit.rz(
                     arg1,
@@ -163,7 +162,7 @@ def insert_operation(
                     condition,
                     cofactor,
                 )
-        case 'cz':
+        case "cz":
             if condition == -1:
                 circuit.cz(
                     arg1,
@@ -177,7 +176,7 @@ def insert_operation(
                     condition,
                     cofactor,
                 )
-        case 'swap':
+        case "swap":
             if condition == -1:
                 circuit.swap(
                     arg1,
@@ -191,7 +190,7 @@ def insert_operation(
                     condition,
                     cofactor,
                 )
-        case 'cx' | 'cnot':
+        case "cx" | "cnot":
             if condition == -1:
                 circuit.cx(
                     arg1,
@@ -205,7 +204,7 @@ def insert_operation(
                     condition,
                     cofactor,
                 )
-        case 'ccx':
+        case "ccx":
             if condition == -1:
                 circuit.ccx(
                     arg1,
@@ -221,7 +220,7 @@ def insert_operation(
                     condition,
                     cofactor,
                 )
-        case 'mz' | 'm':
+        case "mz" | "m":
             if condition == -1:
                 circuit.measure(
                     arg1,
