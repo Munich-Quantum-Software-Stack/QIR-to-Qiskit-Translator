@@ -1,4 +1,4 @@
-"""
+'''
 Copyright 2024 Munich Quantum Software Stack Project
 
 Licensed under the Apache License, Version 2.0 with LLVM Exceptions (the
@@ -14,22 +14,9 @@ License for the specific language governing permissions and limitations under
 the License.
 
 SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
-"""
+'''
 
-from qiskit import (  # type: ignore
-    QuantumCircuit,
-    transpile,
-)
-import pyqir.qis as qis
+from .qir_qiskit.translate import to_qiskit_circuit
+from .qir_qiskit.verifier import transpile_qiskit
 
-
-def transpile_qiskit(circuit: QuantumCircuit) -> QuantumCircuit:
-    basis_gates = [q for q in dir(qis) if not q.startswith("__")]
-    basis_gates.append("id")
-
-    transpiled_circuit = transpile(
-        circuits=circuit,
-        basis_gates=basis_gates,
-    )
-
-    return transpiled_circuit
+__all__ = ["to_qiskit_circuit", "transpile_qiskit"]
