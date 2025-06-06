@@ -20,11 +20,11 @@ import os
 
 from qiskit_qir import to_qir_module
 from pathlib import Path
-from hpcqc.qir_qiskit.translate import to_qiskit_circuit
+from mqss.qirpy.translate import to_qiskit_circuit
 from qiskit import QuantumCircuit
 from qiskit import qasm2
 from mqt import qcec
-from hpcqc.qir_qiskit.verifier import transpile_qiskit
+from mqss.qirpy.verifier import transpile_qiskit
 
 
 def qiskit_to_qir_bitcode(circuit: QuantumCircuit) -> bytes:
