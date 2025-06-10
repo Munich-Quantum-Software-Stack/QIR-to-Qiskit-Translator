@@ -1,3 +1,4 @@
-# MQSSQiskitAdapter
+# MQSS QIRPy Regex
+
 
 ::: mqss.qirpy.regex

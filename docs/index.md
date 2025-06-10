@@ -1,6 +1,6 @@
 # Welcome to MQSS QIRPy Documentation
 
-QIRPy is a software tools that translates `QIR` modules to the Qiskit Quantum Circuits. In this way, the state-of-the-art Qiskit features can be used. 
+QIRPy is a software tools that translates `QIR` modules to the Qiskit Quantum Circuits. In this way, the state-of-the-art Qiskit features can be used.
 
 ## Getting Started
 
@@ -20,3 +20,5 @@ Detailed API documentation for the MQSS QIRPy:
 - [MQSSQIRPyVisitor](api/mqss_qir_py_visitor.md) : The class that helps to iterate over the QIR module
 
 ## Change Log
+
+See the [CHANGELOG](changelog.md) for details on changes in each version.

@@ -36,7 +36,7 @@ uv sync
 To run the tests, use `pytest`:
 
 ```sh
-uv run pytest
+uv run pytest test/test.py
 ```
 
 ## Building Documentation

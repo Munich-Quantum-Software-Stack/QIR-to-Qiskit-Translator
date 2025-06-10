@@ -57,7 +57,6 @@ def insert_operation(
     condition: Union[int, float, None],
     cofactor: Union[int, float, None],
 ) -> QuantumCircuit:
-    
     """Insert an operation to the created QuantumCircuit
 
     Args:
@@ -294,6 +293,7 @@ def insert_operation(
             assert False, f"Gate not supported: {operation}"
 
     return circuit
+
 
 class QuantumCircuitElementVisitor(metaclass=ABCMeta):
     @abstractmethod

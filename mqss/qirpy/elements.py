@@ -34,17 +34,18 @@ from typing import (
     List,
 )
 
-"""MQSS Elements Module"""
 
 class _QuantumCircuitElement(metaclass=ABCMeta):
-    """Abstract Class defination """
+    """Abstract Class defination"""
+
     @abstractmethod
     def accept(self, visitor):
         pass
 
 
 class _Function(_QuantumCircuitElement):
-    """MQSS _Function class represents the QIR Function within the QIRPy """
+    """MQSS QIRPy  _Function class represents the QIR Function within the QIRPy"""
+
     def __init__(self, function: Function):
         self._function: Function = function
 
@@ -53,7 +54,8 @@ class _Function(_QuantumCircuitElement):
 
 
 class QirBlock:
-    """MQSS Qir Module class represents the QIR Modules within the QIRPy """
+    """MQSS QIRPy  Qir Module class represents the QIR Modules within the QIRPy"""
+
     def __init__(
         self,
         block: BasicBlock,
@@ -92,8 +94,8 @@ class QirBlock:
 
 
 class QirModule:
-    """MQSS Qir Module class represents the QIR Modules within the QIRPy """
-    
+    """MQSS QIRPy  Qir Module class represents the QIR Modules within the QIRPy"""
+
     def __init__(
         self,
         name: str,
@@ -146,7 +148,6 @@ class QirModule:
 
     @property
     def elements(self) -> List[_QuantumCircuitElement]:
-        
         """Return the list of the elements of the module.
 
         Returns:
@@ -160,13 +161,13 @@ class QirModule:
         qir_module: Module,
     ) -> "QirModule":
         """Create a new QirModule from a pyqir.Module object.
-        
+
         Args:
             qir_module (pyqir.Module) : The imported QIR Moduled to be converted to Qiskit Quantum Circuit.
-            
+
         Returns:
             Internal representation of the QIR Module.
-        """  
+        """
 
         entry_point = next(filter(pyqir.is_entry_point, qir_module.functions))
 
@@ -192,7 +193,7 @@ class QirModule:
         )
 
     def accept(self, visitor) -> None:
-        """ Iterates over the module to insert Qiskit Instruction to the circuit"""
+        """Iterates over the module to insert Qiskit Instruction to the circuit"""
 
         # visit module
         visitor.visit_qir_module(self)
