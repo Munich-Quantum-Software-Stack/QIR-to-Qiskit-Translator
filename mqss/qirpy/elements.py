@@ -1,3 +1,21 @@
+# ------------------------------------------------------------------------------
+# Copyright 2024 Munich Quantum Software Stack Project
+#
+# Licensed under the Apache License, Version 2.0 with LLVM Exceptions (the
+# "License"); you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# https://github.com/Munich-Quantum-Software-Stack/QIR2Qiskit/blob/develop/LICENSE
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations under
+# the License.
+#
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+# ------------------------------------------------------------------------------
+
 from qiskit import QuantumCircuit  # type: ignore
 import pyqir
 from pyqir import (
@@ -18,12 +36,16 @@ from typing import (
 
 
 class _QuantumCircuitElement(metaclass=ABCMeta):
+    """Abstract Class defination"""
+
     @abstractmethod
     def accept(self, visitor):
         pass
 
 
 class _Function(_QuantumCircuitElement):
+    """MQSS QIRPy  _Function class represents the QIR Function within the QIRPy"""
+
     def __init__(self, function: Function):
         self._function: Function = function
 
@@ -32,6 +54,8 @@ class _Function(_QuantumCircuitElement):
 
 
 class QirBlock:
+    """MQSS QIRPy  Qir Module class represents the QIR Modules within the QIRPy"""
+
     def __init__(
         self,
         block: BasicBlock,
@@ -70,6 +94,8 @@ class QirBlock:
 
 
 class QirModule:
+    """MQSS QIRPy  Qir Module class represents the QIR Modules within the QIRPy"""
+
     def __init__(
         self,
         name: str,
@@ -86,22 +112,47 @@ class QirModule:
 
     @property
     def name(self) -> str:
+        """Returns the name of the QIR Module
+
+        Returns:
+            The name of the QIR Module
+        """
         return self._name
 
     @property
     def circuit(self) -> QuantumCircuit:
+        """Return the QuantumCircuit for the QIR Module
+
+        Returns:
+            The QuantumCircuit for the QIR Module
+        """
         return self._circuit
 
     @property
     def num_qubits(self) -> int:
+        """Return the amount of qubits used in the module.
+
+        Returns:
+            The amount of qubits used in the module.
+        """
         return self._num_qubits
 
     @property
     def num_clbits(self) -> int:
+        """Return the amount of classical bits used in the module.
+
+        Returns:
+            The amount of qubits used in the module.
+        """
         return self._num_clbits
 
     @property
     def elements(self) -> List[_QuantumCircuitElement]:
+        """Return the list of the elements of the module.
+
+        Returns:
+            The list of the elements of the module.
+        """
         return self._elements
 
     @classmethod
@@ -109,7 +160,14 @@ class QirModule:
         cls,
         qir_module: Module,
     ) -> "QirModule":
-        """Create a new QirModule from a pyqir.Module object"""
+        """Create a new QirModule from a pyqir.Module object.
+
+        Args:
+            qir_module (pyqir.Module) : The imported QIR Moduled to be converted to Qiskit Quantum Circuit.
+
+        Returns:
+            Internal representation of the QIR Module.
+        """
 
         entry_point = next(filter(pyqir.is_entry_point, qir_module.functions))
 
@@ -135,6 +193,8 @@ class QirModule:
         )
 
     def accept(self, visitor) -> None:
+        """Iterates over the module to insert Qiskit Instruction to the circuit"""
+
         # visit module
         visitor.visit_qir_module(self)
 

@@ -1,11 +1,30 @@
+# ------------------------------------------------------------------------------
+# Copyright 2024 Munich Quantum Software Stack Project
+#
+# Licensed under the Apache License, Version 2.0 with LLVM Exceptions (the
+# "License"); you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# https://github.com/Munich-Quantum-Software-Stack/QIR2Qiskit/blob/develop/LICENSE
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations under
+# the License.
+#
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+# ------------------------------------------------------------------------------
+
+
 from qiskit.circuit.quantumcircuit import QuantumCircuit  # type: ignore
 import llvmlite.binding as llvm  # type: ignore
 from pyqir import (
     Context,
     Module,
 )
-from hpcqc.qir_qiskit.elements import QirModule  # type: ignore
-from hpcqc.qir_qiskit.visitor import BasicQisVisitor
+from .elements import QirModule  # type: ignore
+from .visitor import BasicQisVisitor
 
 
 def to_qiskit_circuit(
@@ -25,12 +44,6 @@ def to_qiskit_circuit(
 
     pmb = llvm.create_pass_manager_builder()
     mpm = llvm.create_module_pass_manager()
-
-    # print("\nAvailable LLVM passes: [")
-    # for passes in dir(mpm):
-    #     if passes.startswith('add') is True:
-    #         print(f"    {passes},")
-    # print(']\n')
 
     pmb.opt_level = 0
     pmb.populate(mpm)
