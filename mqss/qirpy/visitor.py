@@ -65,8 +65,8 @@ def insert_operation(
         arg1 (Union[int, float, None]): The first argument of the QIR Instruction.
         arg2 (Union[int, None]): The second argument of the QIR Instruction.
         arg3 (Union[int, None]): The third argument of the QIR Instruction.
-        condition (Union[int, float, None]) : Sets when the Quantum Instruction has classical condition.
-        cofactor (Union[int, float, None]) : The cofactor of the classical condition.
+        condition (Union[int, float, None]): Sets when the Quantum Instruction has classical condition.
+        cofactor (Union[int, float, None]): The cofactor of the classical condition.
     """
     for arg in locals():
         raised = f"Error: wrong argument: {arg}"

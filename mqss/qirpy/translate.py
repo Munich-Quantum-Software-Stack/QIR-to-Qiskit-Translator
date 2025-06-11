@@ -30,8 +30,7 @@ from .visitor import BasicQisVisitor
 def to_qiskit_circuit(
     qir_bitcode: bytes,
 ) -> QuantumCircuit:
-    """Converts the QIR Module with its entry point names
-    to a Qiskit QuantumCircuit"""
+    """Converts the QIR Module with its entry point names to a Qiskit QuantumCircuit"""
 
     assert isinstance(qir_bitcode, bytes)
 
