@@ -35,6 +35,6 @@ jobs:
         run: |
           uv run pre-commit install
           uv run pre-commit run --all-files
-      - name: Test 
+      - name: Test
         run: |
           uv run nox -s test_translate
