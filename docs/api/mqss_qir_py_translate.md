@@ -1,3 +1,3 @@
-# MQSSQiskitAdapter
+# MQSS Qiskit_QIR Translate
 
-::: mqss.qirpy.translate
+::: mqss.Qiskit_QIR.translate

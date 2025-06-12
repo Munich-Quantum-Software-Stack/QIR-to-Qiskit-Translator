@@ -1,4 +1,4 @@
-# MQSS QIRPy Regex
+# MQSS Qiskit_QIR Regex
 
 
-::: mqss.qirpy.regex
+::: mqss.Qiskit_QIR.regex

@@ -15,7 +15,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 # ------------------------------------------------------------------------------
-
+"""The set of auxiliary functions to parse the QIR instructions """
 from typing import (
     Union,
     Tuple,

@@ -16,6 +16,8 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 # ------------------------------------------------------------------------------
 
+"""Desribes the internal representation of the QIR elements"""
+
 from qiskit import QuantumCircuit  # type: ignore
 import pyqir
 from pyqir import (
@@ -44,7 +46,7 @@ class _QuantumCircuitElement(metaclass=ABCMeta):
 
 
 class _Function(_QuantumCircuitElement):
-    """MQSS QIRPy  _Function class represents the QIR Function within the QIRPy"""
+    """MQSS Qiskit_QIR _Function class represents the QIR Function within the Qiskit_QIR"""
 
     def __init__(self, function: Function):
         self._function: Function = function
@@ -54,7 +56,7 @@ class _Function(_QuantumCircuitElement):
 
 
 class QirBlock:
-    """MQSS QIRPy  Qir Module class represents the QIR Modules within the QIRPy"""
+    """MQSS Qiskit_QIR Qir Module class represents the QIR Modules within the Qiskit_QIR"""
 
     def __init__(
         self,
@@ -94,7 +96,7 @@ class QirBlock:
 
 
 class QirModule:
-    """MQSS QIRPy  Qir Module class represents the QIR Modules within the QIRPy"""
+    """MQSS Qiskit_QIR Qir Module class represents the QIR Modules within the Qiskit_QIR"""
 
     def __init__(
         self,

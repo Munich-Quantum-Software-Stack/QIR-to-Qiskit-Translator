@@ -1,3 +1,3 @@
-# MQSSQiskitAdapter
+# MQSS Qiskit_QIR Visitor
 
-::: mqss.qirpy.visitor
+::: mqss.Qiskit_QIR.visitor

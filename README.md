@@ -1,4 +1,4 @@
-# MQSS QIRPy
+# MQSS Qiskit_QIR
 
 This project is a software tool to convert QIR to a Qiskit QuantumCircuit object.
 
@@ -7,15 +7,15 @@ This project is a software tool to convert QIR to a Qiskit QuantumCircuit object
 To install the package, simply run
 
 ```bash
-pip install mqss-qirpy
+pip install mqss-qiskit_qir
 ```
 
 ## Usage
-The QirPy allows users to translate `QIR Modules` to the state-of-the-art Qiskit Quantum Circuits. In this way, user can use Qiskit features as well.
+The Qiskit_QIR allows users to translate `QIR Modules` to the state-of-the-art Qiskit Quantum Circuits. In this way, user can use Qiskit features as well.
 For more detail, please see the detailed [documentation](https://munich-quantum-software-stack.github.io/MQSS-Interfaces/qir-qiskit/index.html).
 
 ```python
-from mqss.qirpy import to_qiskit_circuit
+from mqss.qiskit_qir import to_qiskit_circuit
 from pathlib import Path
 
 bitcode = Path(bitcode_path).read_bytes()

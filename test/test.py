@@ -19,14 +19,15 @@ SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 from qiskit import (  # type: ignore
     QuantumCircuit,
     transpile,
+    qasm2
 )
 import os
 from pathlib import Path
 from qiskit_qir import to_qir_module
-from mqss.qirpy.translate import to_qiskit_circuit
-from qiskit import qasm2
 from mqt import qcec
 import pyqir.qis as qis
+
+from mqss.qir_qiskit.translate import to_qiskit_circuit
 
 
 def transpile_qiskit(circuit: QuantumCircuit) -> QuantumCircuit:

@@ -1,15 +1,15 @@
-import os
 import nox
 
-os.environ.update({"PDM_IGNORE_SAVED_PYTHON": "1"})
+from nox.sessions import Session
 
+@nox.session(python=False)
+@nox.parametrize(
+    "qiskit", ["0.45.3", "0.46.3", "1.0.2", "1.1.2", "1.2.4", "1.3.3", "1.4.3"]
+)
 
-@nox.session(python=["3.10"])
-def test(session) -> None:
-    session.run("pdm", "install", "-G", "test", external=True)
-    session.run("pdm", "install", "-G", "lint", external=True)
-    session.run("pdm", "install", "-G", "typing", external=True)
-
-    session.run("pytest")
-    session.run("flake8", "hpcqc")
-    session.run("mypy", "-p", "hpcqc")
+def test_translate(session: Session, qiskit: str) -> None:
+    """Run the tests with different Qiskit versions."""
+    session.run("rm", "-rf", ".venv", "uv.lock", ".pytest_cache", external=True)
+    session.run("uv", "lock", "--upgrade-package", f"qiskit=={qiskit}", external=True)
+    session.run("uv", "sync", external=True)
+    session.run("uv", "run", "pytest", "-s", "test/test.py", external=True)

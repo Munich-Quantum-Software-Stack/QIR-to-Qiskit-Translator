@@ -16,6 +16,7 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 # ------------------------------------------------------------------------------
 
+""" The entry point to translate QIR Module to Qiskit Quantum Circuit """
 
 from qiskit.circuit.quantumcircuit import QuantumCircuit  # type: ignore
 import llvmlite.binding as llvm  # type: ignore

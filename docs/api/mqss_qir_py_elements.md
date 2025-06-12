@@ -1,4 +1,4 @@
-# MQSS QIRPy Elements
+# MQSS Qiskit_QIR Elements
 
 
-::: mqss.qirpy.elements
+::: mqss.Qiskit_QIR.elements

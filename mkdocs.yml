@@ -1,4 +1,4 @@
-site_name: MQSS QIRPY Documentation
+site_name: MQSS QISKIT_QIR Documentation
 
 docs_dir: "docs"
 site_dir: build/docs/site
@@ -15,10 +15,10 @@ nav:
       - Getting Started: user_guide/getting_started.md
       - Development Guide: user_guide/development_guide.md
   - API Documentation:
-      - MQSSQIRPyElememts: api/mqss_qir_py_elements.md
-      - MQSSQIRPyRegex: api/mqss_qir_py_regex.md
-      - MQSSQIRPyTranslate: api/mqss_qir_py_translate.md
-      - MQSSQIRPyVisitor: api/mqss_qir_py_visitor.md
+      - MQSSQiskitQIRElememts: api/mqss_qir_py_elements.md
+      - MQSSQiskitQIRRegex: api/mqss_qir_py_regex.md
+      - MQSSQiskitQIRTranslate: api/mqss_qir_py_translate.md
+      - MQSSQiskitQIRVisitor: api/mqss_qir_py_visitor.md
   - Change Log: changelog.md
   - Contact Us: contact.md
 
@@ -76,7 +76,7 @@ extra_css:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/Munich-Quantum-Software-Stack/MQSS-Qiskit-Adapter
+      link: https://github.com/Munich-Quantum-Software-Stack/QIR2Qiskit
     - icon: fontawesome/solid/envelope
       link: mailto:quantum@lrz.de
 

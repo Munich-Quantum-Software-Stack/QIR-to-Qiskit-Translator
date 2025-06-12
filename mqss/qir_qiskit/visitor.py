@@ -16,6 +16,7 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 # ------------------------------------------------------------------------------
 
+""" The class that helps to iterate over the QIR module """
 
 from abc import ABCMeta, abstractmethod
 from typing import (  # noqa: F401

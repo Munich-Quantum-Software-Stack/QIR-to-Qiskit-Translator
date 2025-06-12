@@ -2,29 +2,29 @@
 
 ## Installation
 
-To install the MQSS QirPy tool, use the following command:
+To install the MQSS Qiskit_QIR tool, use the following command:
 
 ```shell
-pip install mqss-qirpy
+pip install mqss-qiskit_qir
 ```
 
 ## Overview
 
-The QirPy allows users to translate `QIR Modules` to the state-of-the-art Qiskit Quantum Circuits. In this way, user can use Qiskit feature as well. The main components are:
+The Qiskit_QIR allows users to translate `QIR Modules` to the state-of-the-art Qiskit Quantum Circuits. In this way, user can use Qiskit feature as well. The main components are:
 
-- [MQSSQIRPyElememts](../api/mqss_qir_py_elements.md): Desribes the internal representation of the QIR elements
-- [MQSSQIRPyRegex](../api/mqss_qir_py_regex.md): The set of auxiliary functions to parse the QIR instructions
-- [MQSSQIRPyTranslate](../api/mqss_qir_py_translate.md): The entry point to translate QIR Module to Qiskit Quantum Circuit
-- [MQSSQIRPyVisitor](../api/mqss_qir_py_visitor.md) : The class that helps to iterate over the QIR module
+- [MQSSQiskitQIRElememts](../api/mqss_qir_py_elements.md): Desribes the internal representation of the QIR elements
+- [MQSSQiskitQIRRegex](../api/mqss_qir_py_regex.md): The set of auxiliary functions to parse the QIR instructions
+- [MQSSQiskitQIRTranslate](../api/mqss_qir_py_translate.md): The entry point to translate QIR Module to Qiskit Quantum Circuit
+- [MQSSQiskitQIRVisitor](../api/mqss_qir_py_visitor.md) : The class that helps to iterate over the QIR module
 
 ## Usage
 
 ### Import Required Modules
 
-Import the necessary component from `MQSS QirPy` package and auxiliary component from `pathlib`.
+Import the necessary component from `MQSS Qiskit_QIR` package and auxiliary component from `pathlib`.
 
 ```python
-from mqss.qirpy import to_qiskit_circuit
+from mqss.qiskit_qir import to_qiskit_circuit
 
 from pathlib import Path
 ```
