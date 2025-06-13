@@ -1,3 +1,3 @@
-# MQSS Qiskit_QIR Translate
+# MQSS QIR_Qiskit Translate
 
-::: mqss.Qiskit_QIR.translate
+::: mqss.QIR_Qiskit.translate

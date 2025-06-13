@@ -2,15 +2,15 @@
 
 ## Installation
 
-To install the MQSS Qiskit_QIR tool, use the following command:
+To install the MQSS QIR_Qiskit tool, use the following command:
 
 ```shell
-pip install mqss-qiskit_qir
+pip install mqss-qir_qiskit
 ```
 
 ## Overview
 
-The Qiskit_QIR allows users to translate `QIR Modules` to the state-of-the-art Qiskit Quantum Circuits. In this way, user can use Qiskit feature as well. The main components are:
+The QIR_Qiskit allows users to translate `QIR Modules` to the state-of-the-art Qiskit Quantum Circuits. In this way, user can use Qiskit feature as well. The main components are:
 
 - [MQSSQiskitQIRElememts](../api/mqss_qir_py_elements.md): Desribes the internal representation of the QIR elements
 - [MQSSQiskitQIRRegex](../api/mqss_qir_py_regex.md): The set of auxiliary functions to parse the QIR instructions
@@ -21,10 +21,10 @@ The Qiskit_QIR allows users to translate `QIR Modules` to the state-of-the-art Q
 
 ### Import Required Modules
 
-Import the necessary component from `MQSS Qiskit_QIR` package and auxiliary component from `pathlib`.
+Import the necessary component from `MQSS QIR_Qiskit` package and auxiliary component from `pathlib`.
 
 ```python
-from mqss.qiskit_qir import to_qiskit_circuit
+from mqss.qir_qiskit import to_qiskit_circuit
 
 from pathlib import Path
 ```

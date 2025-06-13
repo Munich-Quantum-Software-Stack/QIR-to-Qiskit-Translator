@@ -1,4 +1,4 @@
-site_name: MQSS QISKIT_QIR Documentation
+site_name: MQSS QIR_QISKIT Documentation
 
 docs_dir: "docs"
 site_dir: build/docs/site

@@ -1,6 +1,6 @@
 
 [project]
-name = "mqss-qiskit_qir"
+name = "mqss-qir_qiskit"
 version = "0.1.0"
 description = "Tool to convert QIR to a Qiskit QuantumCircuit object"
 authors = [

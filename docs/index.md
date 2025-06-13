@@ -1,10 +1,10 @@
-# Welcome to MQSS Qiskit_QIR Documentation
+# Welcome to MQSS QIR_Qiskit Documentation
 
-Qiskit_QIR is a software tools that translates `QIR` modules to the Qiskit Quantum Circuits. In this way, the state-of-the-art Qiskit features can be used.
+QIR_Qiskit is a software tools that translates `QIR` modules to the Qiskit Quantum Circuits. In this way, the state-of-the-art Qiskit features can be used.
 
 ## Getting Started
 
-To get started with the MQSS Qiskit_QIR, please refer to the [Getting Started](user_guide/getting_started.md) guide.
+To get started with the MQSS QIR_Qiskit, please refer to the [Getting Started](user_guide/getting_started.md) guide.
 
 ## Development Guide
 
@@ -12,7 +12,7 @@ For information on setting up the development environment and contributing to th
 
 ## API Documentation
 
-Detailed API documentation for the MQSS Qiskit_QIR:
+Detailed API documentation for the MQSS QIR_Qiskit:
 
 - [MQSSQiskitQIRElememts](api/mqss_qir_py_elements.md): Desribes the internal representation of the QIR elements
 - [MQSSQiskitQIRRegex](api/mqss_qir_py_regex.md): The set of auxiliary functions to parse the QIR instructions
