@@ -23,7 +23,7 @@ from qiskit import (  # type: ignore
 )
 import os
 from pathlib import Path
-from qir_qiskit import to_qir_module
+from qiskit_qir import to_qir_module
 from mqt import qcec
 import pyqir.qis as qis
 
