@@ -5,7 +5,7 @@
 To install the MQSS QIR_Qiskit tool, use the following command:
 
 ```shell
-pip install mqss-qir_qiskit
+pip install mqss-qir-qiskit
 ```
 
 ## Overview

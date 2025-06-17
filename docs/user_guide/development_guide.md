@@ -13,7 +13,7 @@ This project provides a tool to convert QIR to a Qiskit QuantumCircuit object. T
 
 Before you start developing, ensure you have the following installed:
 
-- Python 3.10 to 3.13
+- Python 3.10 to 3.12
 - [`uv`](https://docs.astral.sh/uv/) package manager for python
 
 ## Setting Up the Development Environment

@@ -165,7 +165,7 @@ class QirModule:
         """Create a new QirModule from a pyqir.Module object.
 
         Args:
-            qir_module (pyqir.Module) : The imported QIR Moduled to be converted to
+            qir_module (pyqir.Module) : The imported QIR Modules to be converted to
                                             Qiskit Quantum Circuit.
 
         Returns:
