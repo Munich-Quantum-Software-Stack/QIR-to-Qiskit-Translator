@@ -1,0 +1,83 @@
+site_name: MQSS QIR_QISKIT Documentation
+
+docs_dir: "docs"
+site_dir: build/docs/site
+use_directory_urls: true
+dev_addr: "127.0.0.1:8000"
+watch:
+  - docs
+  - mkdocs.yml
+
+nav:
+  #- MQSS Interfaces: https://munich-quantum-software-stack.github.io/MQSS-Interfaces/
+  - Home: index.md
+  - User Guide:
+      - Getting Started: user_guide/getting_started.md
+      - Development Guide: user_guide/development_guide.md
+  - API Documentation:
+      - MQSSQiskitQIRElememts: api/mqss_qir_py_elements.md
+      - MQSSQiskitQIRRegex: api/mqss_qir_py_regex.md
+      - MQSSQiskitQIRTranslate: api/mqss_qir_py_translate.md
+      - MQSSQiskitQIRVisitor: api/mqss_qir_py_visitor.md
+  - Change Log: changelog.md
+  - Contact Us: contact.md
+
+theme:
+  name: material
+  logo: img/mqss_logo_white.svg
+  palette:
+    # Light Mode
+    - scheme: default
+      toggle:
+        icon: material/lightbulb-night-outline
+        name: Light mode
+      primary: custom
+      accent: deep purple
+
+    # Dark Mode
+    - scheme: slate
+      toggle:
+        icon: material/lightbulb-on-outline
+        name: Dark mode
+      primary: indigo
+      accent: deep orange
+  features:
+    - content.code.copy
+    - navigation.instant
+    - navigation.footer
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: google
+            show_source: false
+            separate_signature: true
+            show_if_no_docstring: false
+            show_root_full_path: true
+            show_signature_annotations: true
+  - autorefs
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - codehilite
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
+
+extra_css:
+  - css/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Munich-Quantum-Software-Stack/QIR2Qiskit
+    - icon: fontawesome/solid/envelope
+      link: mailto:quantum@lrz.de
+
+copyright: Copyright &copy; 2025 MQV

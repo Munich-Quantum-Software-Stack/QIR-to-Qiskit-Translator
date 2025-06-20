@@ -1,34 +1,53 @@
 
 [project]
-name = "qir_qiskit"
+name = "mqss-qir-qiskit"
 version = "0.1.0"
 description = "Tool to convert QIR to a Qiskit QuantumCircuit object"
 authors = [
-    {name = "Jorge Echavarria", email = "jorge.echavarria@lrz.de"},
-    {name = "Martin Ruefenacht", email = "martin.ruefenacht@lrz.de"},
+    {name = "mqss", email = "mqss@munich-quantum-valley.de"},
 ]
+keywords = ["MQSS", "quantum-computing", "Qiskit", "qir"]
+
 dependencies = [
-    "qiskit>=0.43.1",
-    "qiskit-qir>=0.3.1",
-    "llvmlite>=0.40.1",
     "pyqir>=0.8.0",
+    "llvmlite>=0.40.1",
+    "qiskit >=0.45,<2.0.0",
 ]
 requires-python = ">=3.10"
 readme = "README.md"
-license = {text = "MIT"}
+license = {text = "Apache-2.0"}
 
 [build-system]
-requires = ["pdm-pep517>=1.0"]
-build-backend = "pdm.pep517.api"
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
 
-[tool.pdm.dev-dependencies]
-test = [
-    "pytest>=7.3",
-]
-lint = [
-    "pre-commit>=3.3",
-    "flake8>=6.0.0",
-]
-typing = [
-    "mypy>=1.4.0",
+[tool.isort]
+profile = "black"
+src_paths = ["mqss", "test"]
+known_first_party = ["mqss"]
+
+[tool.pytest.ini_options]
+testpaths = ["test"]
+addopts = ["-v", "-s"]
+markers = [
+    "backend: mark tests related to backend operations",
+    "job: mark tests that involve job submission",]
+
+[tool.pdm.build]
+includes = ["mqss"]
+
+[dependency-groups]
+dev = [
+    "nox>=2023.4.22",
+    "pytest>=8.2.2",
+    "mypy>=1.10.1",
+    "isort>=5.13.2",
+    "pre-commit>=3.5.0",
+    "mkdocs",
+    "mkdocs-material",
+    "mkdocstrings[python]",
+    "ruff>=0.11.5",
+    "pytest-cov>=6.1.1",
+    "mqt.qcec",
+    "qiskit_qir"
 ]
