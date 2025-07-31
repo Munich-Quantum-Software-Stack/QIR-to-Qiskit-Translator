@@ -2,14 +2,6 @@
 
 This project is a software tool to convert QIR to a Qiskit QuantumCircuit object.
 
-## Installation
-
-To install the package, simply run
-
-```bash
-pip install --index-url https://pypi.quantum.lrz.de/simple/ mqss-qir-qiskit
-```
-
 ## Usage
 The QIR_Qiskit allows users to translate `QIR Modules` to the state-of-the-art Qiskit Quantum Circuits. In this way, user can use Qiskit features as well.
 For more detail, please see the detailed documentation.
