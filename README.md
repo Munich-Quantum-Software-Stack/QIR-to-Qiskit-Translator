@@ -7,7 +7,7 @@ This project is a software tool to convert QIR to a Qiskit QuantumCircuit object
 To install the package, simply run
 
 ```bash
-pip install mqss-qir-qiskit
+pip install --index-url https://pypi.quantum.lrz.de/simple/ mqss-qir-qiskit
 ```
 
 ## Usage
