@@ -21,7 +21,7 @@ Before you start developing, ensure you have the following installed:
 **Clone the repository:**
 
 ```sh
-git clone https://github.com/Munich-Quantum-Software-Stack/QIR2Qiskit.git
+git clone https://github.com/Munich-Quantum-Software-Stack/QIR-to-Qiskit-Translator
 cd QIR2Qiskit
 ```
 

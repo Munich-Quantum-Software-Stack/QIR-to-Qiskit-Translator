@@ -1,3 +1,3 @@
 # MQSS QIR_Qiskit Visitor
 
-::: mqss.QIR_Qiskit.visitor
+::: mqss.qir_qiskit.visitor
